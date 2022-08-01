@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping("login")
     public boolean login(@RequestBody User user) {
         List<User> usuarios = userRepository.findByUserAndPass(user.getUser(), user.getPass());
-        if (!usuarios.isEmpty()) {
+        if (usuarios.isEmpty()) {
             return true;
         }
         return false;
